@@ -1,0 +1,45 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  border: 1px solid black;
+  border-radius: 4px;
+  padding: 10px;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  gap: 8px;
+  width: 100%;
+}
+.label {
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 1.5;
+  letter-spacing: -0.03em;
+  padding-left: 10px;
+}
+.input {
+  height: 40px;
+  padding-left: 10px;
+  font-size: 22px;
+  font-weight: 400;
+  line-height: 1.5;
+  letter-spacing: -0.03em;
+}
+.btn {
+  width: 150px;
+  height: 50px;
+  background-color: lightgrey;
+  border: 1px solid rgb(169, 169, 169);
+  color: black;
+  font-size: 22px;
+  font-weight: 500;
+  line-height: 1.5;
+  letter-spacing: -0.03em;
+  padding: 10px;
+  margin: 10px auto;
+}
+.error {
+  display: block;
+  font-size: 14px;
+  color: orangered;
+}
