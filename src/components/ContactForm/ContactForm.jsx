@@ -26,8 +26,8 @@ function ContactForm() {
         number: "",
       }}
       validationSchema={ContactFormSchema}
-      onSubmit={(values, actions) => {
-        dispatch(addContact({ name: values.name, number: values.number }));
+      onSubmit={(contact, actions) => {
+        dispatch(addContact({ name: contact.name, number: contact.number }));
         actions.resetForm();
       }}
     >

@@ -20,10 +20,10 @@ function ContactList() {
 
   return (
     <ul className={css.lists}>
-      {visibleContacts.map((item) => {
+      {visibleContacts.map((contact) => {
         return (
-          <li className={css.item} key={item.id}>
-            <Contact item={item} />
+          <li className={css.item} key={contact.id}>
+            <Contact contact={contact} />
           </li>
         );
       })}
