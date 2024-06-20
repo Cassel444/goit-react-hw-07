@@ -1,5 +1,5 @@
 import { useDispatch } from "react-redux";
-import { addContact } from "../../redux/contactsSlice";
+import { addContact } from "../../redux/contactsOps";
 import css from "./ContactForm.module.css";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
@@ -27,7 +27,7 @@ function ContactForm() {
       }}
       validationSchema={ContactFormSchema}
       onSubmit={(values, actions) => {
-        dispatch(addContact(values.name, values.number));
+        dispatch(addContact({ name: values.name, number: values.number }));
         actions.resetForm();
       }}
     >
