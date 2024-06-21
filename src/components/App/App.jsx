@@ -4,13 +4,13 @@ import { useEffect } from "react";
 import ContactForm from "../ContactForm/ContactForm";
 import SearchBox from "../SearchBox/SearchBox";
 import ContactList from "../ContactList/ContactList";
-import { getError, getLoading } from "../../redux/contactsSlice";
+import { selectError, selectLoading } from "../../redux/selectors";
 import { fetchContacts } from "../../redux/contactsOps";
 
 function App() {
   const dispatch = useDispatch();
-  const loading = useSelector(getLoading);
-  const error = useSelector(getError);
+  const loading = useSelector(selectLoading);
+  const error = useSelector(selectError);
 
   useEffect(() => {
     dispatch(fetchContacts());
@@ -20,8 +20,9 @@ function App() {
     <div className={css.container}>
       <h1>Phonebook</h1>
       <ContactForm />
-      {loading && !error && <b>Request in progress...</b>}
       <SearchBox />
+      {error && <b>Ooops... something went wrong</b>}
+      {loading && <b>Loading contact...</b>}
       <ContactList />
     </div>
   );

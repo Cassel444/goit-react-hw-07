@@ -1,4 +1,4 @@
-import { createSelector, createSlice } from "@reduxjs/toolkit";
+import { createSlice } from "@reduxjs/toolkit";
 import { fetchContacts, addContact, deleteContact } from "./contactsOps";
 
 
@@ -10,8 +10,6 @@ const handleRejected = (state, action) => {
     state.loading = false;
     state.error = action.payload;
 }
-
-// const selectFilteredContacts = createSelector()
 
 const contactsSlice = createSlice({
     name: "contacts",
@@ -42,6 +40,9 @@ const contactsSlice = createSlice({
                 state.error = null;
                 const index = state.items.findIndex(contact => contact.id === action.payload.id);
                 state.items.splice(index, 1);
+                // варіант видалення з пагінацією
+                // state.items = state.items.filter((contact) => contact.id !== action.payload.id);
+                // варіант видалення якщо немає пагінації
             })
             .addCase(deleteContact.rejected, handleRejected)
 
@@ -50,6 +51,3 @@ const contactsSlice = createSlice({
 
 
 export const contactsReducer = contactsSlice.reducer;
-export const selectContacts = state => state.contacts.items;
-export const getLoading = state => state.contacts.loading;
-export const getError = state => state.contacts.error;
