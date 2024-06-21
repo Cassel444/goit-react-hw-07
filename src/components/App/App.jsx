@@ -4,8 +4,9 @@ import { useEffect } from "react";
 import ContactForm from "../ContactForm/ContactForm";
 import SearchBox from "../SearchBox/SearchBox";
 import ContactList from "../ContactList/ContactList";
-import { selectError, selectLoading } from "../../redux/selectors";
+import { selectError, selectLoading } from "../../redux/contactsSlice";
 import { fetchContacts } from "../../redux/contactsOps";
+import Loader from "../Loader/Loader";
 
 function App() {
   const dispatch = useDispatch();
@@ -22,7 +23,7 @@ function App() {
       <ContactForm />
       <SearchBox />
       {error && <b>Ooops... something went wrong</b>}
-      {loading && <b>Loading contact...</b>}
+      {loading && <Loader />}
       <ContactList />
     </div>
   );
